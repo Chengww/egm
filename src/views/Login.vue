@@ -1,11 +1,10 @@
 <template>
   <el-container class="layout layout-absolute">
-    <el-header height="70px">
-      <img src="@/assets/imgs/logo2.png">
+    <eg-header>
       <div>
         <el-button type="info" size="small" @click="login(false)">游客</el-button>
       </div>
-    </el-header>
+    </eg-header>
     <el-main>
       <div class="login-form">
         <img src="@/assets/imgs/logo1.png" class="img_big">
@@ -78,23 +77,14 @@ export default {
 }
 </script>
 <style scoped>
-.el-main {
-  background: 100% 100% no-repeat url('../assets/imgs/bg1.jpg');
-  background-color: brown;
-}
-.el-header {
-  line-height: 70px;
-  background-color:teal;
-}
-.el-header img {
-  margin: 5px 10px;
-}
 .el-header div {
   margin-right: 100px;
   float: right;
 }
-.el-header div span {
-  margin-right: 20px;
+
+.el-main {
+  background: 100% 100% no-repeat url('../assets/imgs/bg1.jpg');
+  background-color: brown;
 }
 .el-main span {
   bottom: 0px;
@@ -102,6 +92,7 @@ export default {
   margin-bottom: 10px;
   left: 40%;
 }
+
 .login-form {
   width: 350px;
   height: 450px;
@@ -110,7 +101,6 @@ export default {
   float: right;
   margin: 150px 150px;
 }
-
 .login-form img {
   margin-left: 60px;
 }
