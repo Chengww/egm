@@ -1,0 +1,24 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  /*overflow: hidden;*/
+}
+
+.layout.layout-horizontal {
+  flex-direction: row;
+}
+.layout.layout-absolute {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.layout>.layout-item {
+  flex: 1 1;
+  position: relative;
+  overflow: hidden
+}
+
+.f-red {
+  color: red; 
+}
