@@ -88,7 +88,7 @@ export default {
 }
 .el-main span {
   bottom: 0px;
-  position:absolute;
+  position: absolute;
   margin-bottom: 10px;
   left: 40%;
 }
