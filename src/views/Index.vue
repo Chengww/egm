@@ -11,7 +11,7 @@
         </p>
       </div>
     </el-header>
-    <el-main>
+    <el-main class="layout">
       <router-view></router-view>
     </el-main>
   </el-container>
