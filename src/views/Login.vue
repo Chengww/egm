@@ -1,11 +1,13 @@
 <template>
   <el-container class="layout layout-absolute">
-    <eg-header>
-      <div>
-        <el-button type="info" size="small" @click="login(false)">游客</el-button>
+    <el-header class="layout layout-horizontal">
+      <img class="small-logo" src="@/assets/imgs/logo2.png">
+      <div class="layout layout-item align-center"><h1>HC 商家助手</h1></div>
+      <div class="header-right">
+        <el-button type="info" size="small" plain @click="login(false)">游客</el-button>
       </div>
-    </eg-header>
-    <el-main>
+    </el-header>
+    <el-main class="login-main">
       <div class="login-form">
         <img src="@/assets/imgs/logo1.png" class="img_big">
         <el-form ref="loginForm" label-width="80px" label-position="left" :model="loginData" :rules="rules">
@@ -24,7 +26,7 @@
           </el-form-item>
         </el-form>
       </div>
-      <span>@2018 Copyright 韩城眼镜商行 网址:www.hcegm.com</span>
+      <p>@2018 Copyright 商家助手 Merchant Assistant 网址:www.hcma.com</p>
     </el-main>
   </el-container>
 </template>
@@ -76,32 +78,3 @@ export default {
   }
 }
 </script>
-<style scoped>
-.el-header div {
-  margin-right: 100px;
-  float: right;
-}
-
-.el-main {
-  background: 100% 100% no-repeat url('../assets/imgs/bg1.jpg');
-  background-color: brown;
-}
-.el-main span {
-  bottom: 0px;
-  position: absolute;
-  margin-bottom: 10px;
-  left: 40%;
-}
-
-.login-form {
-  width: 350px;
-  height: 450px;
-  background-color: #90CAF9;
-  padding: 0px 10px;
-  float: right;
-  margin: 150px 150px;
-}
-.login-form img {
-  margin-left: 60px;
-}
-</style>

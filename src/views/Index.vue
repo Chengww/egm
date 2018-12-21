@@ -1,23 +1,29 @@
 <template>
   <el-container class="layout layout-absolute">
-    <eg-header class="layout layout-horizontal">
+    <el-header class="layout layout-horizontal">
+      <h1>HC Merchant Assistant</h1>
       <eg-nav></eg-nav>
-    </eg-header>
+      <div class="header-right layout layout-horizontal">
+        <span class="img"><img src="@/assets/imgs/head.jpg"></span>
+        <p class="name"><span>Scarecrow</span>
+          <br />
+          <el-button size="mini" type="danger" plain round @click="logout">退出登录</el-button>
+        </p>
+      </div>
+    </el-header>
     <el-main>
-      <ul>
-        <li>1</li>
-        <li>2</li>
-      </ul>
+      <router-view></router-view>
     </el-main>
   </el-container>
 </template>
 
 <script>
 export default {
-  name: 'index'
+  name: 'index',
+  methods: {
+    logout () {
+      this.$router.replace('/login')
+    }
+  }
 }
 </script>
-
-<style scoped>
-
-</style>

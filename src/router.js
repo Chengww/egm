@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from './views/Login.vue'
 import Index from './views/Index.vue'
+import User from './views/settings/User.vue'
+import Goods from './views/goods/Goods.vue'
 
 Vue.use(Router)
 
@@ -17,7 +19,27 @@ export default new Router({
     {
       path: '/index/:isEmployee',
       name: 'index',
-      component: Index
+      redirect: '/goods/goods'
+    },
+    {
+      path: '/settings',
+      component: Index,
+      redirect: '/settings/user',
+      children: [{
+        path: 'user',
+        name: 'user',
+        component: User
+      }]
+    },
+    {
+      path: '/goods',
+      component: Index,
+      redirect: '/goods/goods',
+      children: [{
+        path: 'goods',
+        name: 'goods',
+        component: Goods
+      }]
     },
     {
       path: '/about',
