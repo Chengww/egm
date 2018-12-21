@@ -4,7 +4,7 @@
       <img class="small-logo" src="@/assets/imgs/logo2.png">
       <div class="layout layout-item align-center"><h1>HC 商家助手</h1></div>
       <div class="header-right">
-        <el-button type="info" size="small" plain @click="login(false)">游客</el-button>
+        <el-button type="info" size="small" @click="login(false)">游客</el-button>
       </div>
     </el-header>
     <el-main class="login-main">

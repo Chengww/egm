@@ -72,8 +72,8 @@ body {
 
 .header-right .el-button {
   border: 0px;
-  background: transparent;
-  color: black;
+  /* background: transparent;
+  color: black; */
 }
 
 .img {

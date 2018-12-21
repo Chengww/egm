@@ -7,7 +7,7 @@
         <span class="img"><img src="@/assets/imgs/head.jpg"></span>
         <p class="name"><span>Scarecrow</span>
           <br />
-          <el-button size="mini" type="danger" plain round @click="logout">退出登录</el-button>
+          <el-button size="mini" type="danger" round @click="logout">退出登录</el-button>
         </p>
       </div>
     </el-header>
