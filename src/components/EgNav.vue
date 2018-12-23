@@ -76,6 +76,9 @@ const navs = [{
   id: '/settings',
   name: '设置',
   subNavs: [{
+    id: '6-2',
+    name: '系统设置'
+  }, {
     id: '/settings/user',
     name: '人员'
   }]

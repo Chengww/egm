@@ -12,10 +12,10 @@
         <img src="@/assets/imgs/logo1.png" class="img_big">
         <el-form ref="loginForm" label-width="80px" label-position="left" :model="loginData" :rules="rules">
           <el-form-item label="用户名" prop="userName">
-            <eg-input v-model="loginData.userName" clearable focus></eg-input>
+            <hc-input v-model="loginData.userName" focus></hc-input>
           </el-form-item>
           <el-form-item label="密码" prop="password">
-            <eg-input type="password" v-model="loginData.password" clearable @enter-click="login(true)"></eg-input>
+            <hc-input type="password" v-model="loginData.password" @enter-click="login(true)"></hc-input>
           </el-form-item>
           <el-form-item></el-form-item>
           <el-form-item label-width="100px">

@@ -30,6 +30,11 @@ body {
   height: 70px !important;
 }
 
+.el-main {
+  padding: 0px;
+  background-color: #f3f3f3;
+}
+
 .header-right {
   margin-right: 50px;
   line-height: 70px;
@@ -89,6 +94,90 @@ body {
   border-radius: 50%;
 }
 
+.list-left {
+  border-right: 1px solid #e3e3e3;
+  padding: 10px 0px 0px 10px;
+  padding-right: 10px;
+}
+.list-top {
+  border-bottom: 1px solid #e3e3e3;
+}
+.list-top .table {
+  background-color: white;
+  width: 70%;
+  border-top: 1px solid #e3e3e3;
+  border-right: 1px solid #e3e3e3;
+}
+
+.table .el-row {
+  padding: 10px;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.btn .el-button {
+  margin: 5px 0px 5px 2px;
+}
+
+.list-right {
+  border-left: 1px solid #e3e3e3;
+}
+
+.filter-title {
+  line-height: 1;
+  padding: 10px;
+  margin: 5px 0px;
+  text-align: center;
+  background-color: gainsboro;
+}
+.filter-items {
+  background-color: white;
+  margin: 5px 0px;
+}
+.filter-item-title {
+  padding: 10px;
+  background-color: gainsboro;
+  display: flex;
+  max-width: 3rem;
+  align-items: center;
+}
+.filter-item {
+  margin: 5px;
+  display: inline-block;
+  line-height: 2rem;
+  border-radius: 4px;
+  display: inline-block;
+  padding: 0 .5rem;
+}
+.filter-item:hover{
+  background-color: #e3e3e3;
+  cursor: pointer;
+}
+.filter-item.is-active {
+  background-color: darkgray;
+  color: white;
+  font-weight: 600
+}
+.filter-items .clear {
+  margin: 5px;
+  /* position: absolute;
+  right: 0px; */
+}
+
+.top-filter {
+  height: 33px;
+  margin: 5px 0px;
+  /* background-color: white; */
+  width: 70%
+}
+
+.top-filter .el-tag {
+  margin-left: 5px;
+}
+
+.breadcrumb {
+  margin: 10px;
+  font-size: 20px;
+}
 .f-red {
   color: red; 
 }

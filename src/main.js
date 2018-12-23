@@ -9,6 +9,14 @@ import components from './components'
 
 Vue.config.productionTip = false
 
+/* eslint-disable no-extend-native */
+Array.prototype.remove = function (val) {
+  var index = this.indexOf(val)
+  if (index > -1) {
+    this.splice(index, 1)
+  }
+}
+
 Object.keys(components).forEach(key => {
   Vue.component(components[key].name, components[key])
 })
