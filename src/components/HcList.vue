@@ -4,14 +4,12 @@
       <slot name="left"></slot>
     </div>
     <div class="layout layout-item">
-      <div class="list-top" :style="{ height: size.topHeight }">
+      <div class="list-top">
         <slot name="top"></slot>
       </div>
       <div class="layout layout-horizontal layout-item">
-        <div class="list-bottom" :style="{ width: size.bottomWidth }">
-          <slot name="bottom"></slot>
-        </div>
-        <div class="list-right">
+        <slot name="bottom"></slot>
+        <div class="list-right" :style="{ width: size.rightWidth}">
           <slot name="right"></slot>
         </div>
       </div>
@@ -27,7 +25,7 @@ export default {
       default () {
         return {
           leftWidth: '20%',
-          bottomWidth: '70%'
+          rightWidth: '30%'
         }
       }
     }

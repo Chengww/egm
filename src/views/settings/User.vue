@@ -10,14 +10,14 @@
     <div slot="top" class="layout layout-item">
       <hc-tag v-model="filterParams" :data="filterData" @clear="clickFilter"></hc-tag>
       <div class="table">
-        <el-row>
+        <el-row class="font-m-w">
           <el-col :span="4">未设角色</el-col>
           <el-col :span="4">已设角色</el-col>
           <el-col :span="4">员工</el-col>
           <el-col :span="4">经理</el-col>
           <el-col :span="4">合计</el-col>
         </el-row>
-        <el-row>
+        <el-row class="font-m-b">
           <el-col :span="4">2</el-col>
           <el-col :span="4">3</el-col>
           <el-col :span="4">2</el-col>
@@ -25,12 +25,12 @@
           <el-col :span="4">5</el-col>
         </el-row>
       </div>
-      <div class="btn">
+      <div class="btn-box">
         <el-button type="primary" size="small">添加人员</el-button>
         <el-button type="danger" size="small">批量删除</el-button>
       </div>
     </div>
-    <hc-grid slot="bottom">
+    <hc-grid slot="bottom" :data="gridData">
       <el-table-column
         prop="date"
         label="日期"
@@ -47,12 +47,12 @@
       </el-table-column>
     </hc-grid>
     <div slot="right">
-      <div class="btn">
+      <div class="btn-box">
         <el-button type="primary" size="small">保存</el-button>
         <el-button type="danger" size="small">删除</el-button>
       </div>
-      <el-form label-width="80px">
-        <el-form-item label="性名">
+      <el-form label-width="80px" class="detail">
+        <el-form-item label="姓名姓名">
           <hc-input v-model="detail.name" />
         </el-form-item>
         <el-form-item label="性别">
@@ -66,6 +66,74 @@
   </hc-list>
 </template>
 <script>
+const gridData = [{
+  date: '2016-05-02',
+  name: '王小虎',
+  address: '上海市普陀区金沙江路 弄'
+}, {
+  date: '2016-05-04',
+  name: '王小虎',
+  address: '上海市普陀区金沙江路 弄'
+},
+{
+  date: '2016-05-01',
+  name: '王小虎',
+  address: '上海市普陀区金沙江路 弄'
+}, {
+  date: '2016-05-03',
+  name: '王小虎',
+  address: '上海市普陀区金沙江路 弄'
+}, {
+  date: '2016-05-02',
+  name: '王小虎',
+  address: '上海市普陀区金沙江路 弄'
+}, {
+  date: '2016-05-04',
+  name: '王小虎',
+  address: '上海市普陀区金沙江路 弄'
+},
+{
+  date: '2016-05-01',
+  name: '王小虎',
+  address: '上海市普陀区金沙江路 弄'
+}, {
+  date: '2016-05-03',
+  name: '王小虎',
+  address: '上海市普陀区金沙江路 弄'
+}, {
+  date: '2016-05-02',
+  name: '王小虎',
+  address: '上海市普陀区金沙江路 弄'
+}, {
+  date: '2016-05-04',
+  name: '王小虎',
+  address: '上海市普陀区金沙江路 弄'
+}, {
+  date: '2016-05-01',
+  name: '王小虎',
+  address: '上海市普陀区金沙江路 弄'
+}, {
+  date: '2016-05-03',
+  name: '王小虎',
+  address: '上海市普陀区金沙江路 弄'
+}, {
+  date: '2016-05-02',
+  name: '王小虎',
+  address: '上海市普陀区金沙江路 弄'
+}, {
+  date: '2016-05-04',
+  name: '王小虎',
+  address: '上海市普陀区金沙江路 弄'
+}, {
+  date: '2016-05-01',
+  name: '王小虎',
+  address: '上海市普陀区金沙江路 弄'
+},
+{
+  date: '2016-05-03',
+  name: '王小虎',
+  address: '上海市普陀区金沙江路 弄'
+}]
 export default {
   name: 'user',
   data () {
@@ -95,6 +163,18 @@ export default {
           }, {
             id: '04',
             name: '员工'
+          }, {
+            id: 'se1t',
+            name: '已设角色'
+          }, {
+            id: 'no2Set',
+            name: '未设角色'
+          }, {
+            id: '031',
+            name: 'BOSS'
+          }, {
+            id: '041',
+            name: '员工'
           }]
         },
         sex: {
@@ -107,7 +187,8 @@ export default {
             name: '女'
           }]
         }
-      }
+      },
+      gridData: gridData
     }
   },
   methods: {

@@ -24,6 +24,9 @@ export default {
     logout () {
       this.$router.replace('/login')
     }
+  },
+  created () {
+    console.log(this.$route)
   }
 }
 </script>
