@@ -7,7 +7,7 @@
       <div class="list-top">
         <slot name="top"></slot>
       </div>
-      <div class="layout layout-horizontal layout-item">
+      <div class="layout layout-horizontal layout-item list-bottom">
         <slot name="bottom"></slot>
         <div class="list-right" :style="{ width: size.rightWidth}">
           <slot name="right"></slot>

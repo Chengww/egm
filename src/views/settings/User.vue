@@ -30,7 +30,7 @@
         <el-button type="danger" size="small">批量删除</el-button>
       </div>
     </div>
-    <hc-grid slot="bottom" :data="gridData">
+    <hc-grid slot="bottom" :data="gridData" :total="gridData.length">
       <el-table-column
         prop="date"
         label="日期"
@@ -68,70 +68,70 @@
 <script>
 const gridData = [{
   date: '2016-05-02',
-  name: '王小虎',
+  name: '王小虎1',
   address: '上海市普陀区金沙江路 弄'
 }, {
   date: '2016-05-04',
-  name: '王小虎',
+  name: '王小虎2',
   address: '上海市普陀区金沙江路 弄'
 },
 {
   date: '2016-05-01',
-  name: '王小虎',
+  name: '王小虎3',
   address: '上海市普陀区金沙江路 弄'
 }, {
   date: '2016-05-03',
-  name: '王小虎',
+  name: '王小虎4',
   address: '上海市普陀区金沙江路 弄'
 }, {
   date: '2016-05-02',
-  name: '王小虎',
+  name: '王小虎5',
   address: '上海市普陀区金沙江路 弄'
 }, {
   date: '2016-05-04',
-  name: '王小虎',
+  name: '王小虎6',
   address: '上海市普陀区金沙江路 弄'
 },
 {
   date: '2016-05-01',
-  name: '王小虎',
+  name: '王小虎7',
   address: '上海市普陀区金沙江路 弄'
 }, {
   date: '2016-05-03',
-  name: '王小虎',
+  name: '王小虎8',
   address: '上海市普陀区金沙江路 弄'
 }, {
   date: '2016-05-02',
-  name: '王小虎',
+  name: '王小虎9',
   address: '上海市普陀区金沙江路 弄'
 }, {
   date: '2016-05-04',
-  name: '王小虎',
+  name: '王小虎10',
   address: '上海市普陀区金沙江路 弄'
 }, {
   date: '2016-05-01',
-  name: '王小虎',
+  name: '王小虎11',
   address: '上海市普陀区金沙江路 弄'
 }, {
   date: '2016-05-03',
-  name: '王小虎',
+  name: '王小虎12',
   address: '上海市普陀区金沙江路 弄'
 }, {
   date: '2016-05-02',
-  name: '王小虎',
+  name: '王小虎13',
   address: '上海市普陀区金沙江路 弄'
 }, {
   date: '2016-05-04',
-  name: '王小虎',
+  name: '王小虎14',
   address: '上海市普陀区金沙江路 弄'
 }, {
   date: '2016-05-01',
-  name: '王小虎',
+  name: '王小虎15',
   address: '上海市普陀区金沙江路 弄'
 },
 {
   date: '2016-05-03',
-  name: '王小虎',
+  name: '王小虎16',
   address: '上海市普陀区金沙江路 弄'
 }]
 export default {

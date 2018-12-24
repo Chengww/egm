@@ -2,7 +2,7 @@
   <el-container class="layout layout-absolute">
     <el-header class="layout layout-horizontal">
       <img class="small-logo" src="@/assets/imgs/logo2.png">
-      <div class="layout layout-item align-center"><h1>HC 商家助手</h1></div>
+      <div class="layout-item" style="text-align:center"><h1>HC 商家助手</h1></div>
       <div class="header-right">
         <el-button type="info" size="small" @click="login(false)">游客</el-button>
       </div>

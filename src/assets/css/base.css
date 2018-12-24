@@ -41,8 +41,10 @@ body {
 }
 
 .header-right {
+  width: 300px;
   margin-right: 50px;
   line-height: 70px;
+  text-align: right;
 }
 .header-right .name {
   margin: 12px 3px;
@@ -125,6 +127,10 @@ body {
 }
 .btn-box .el-button {
   margin-left: 2px;
+}
+
+.list-bottom {
+  padding-bottom: 5px;
 }
 
 .list-right {
