@@ -8,7 +8,7 @@
     background-color="teal"
     text-color="#fff"
     active-text-color="#ffd04b">
-      <el-menu-item index="/goods/goods">商品{{navId}}</el-menu-item>
+      <el-menu-item index="/goods/goods">商品</el-menu-item>
       <el-submenu :index="nav.id" v-for="nav in navs" :key="nav.id">
         <template slot="title">{{nav.name}}</template>
         <el-menu-item :index="subNav.id" v-for="subNav in nav.subNavs" :key="subNav.id">{{subNav.name}}</el-menu-item>

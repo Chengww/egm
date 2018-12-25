@@ -41,7 +41,7 @@ body {
 }
 
 .header-right {
-  width: 300px;
+  /* width: 300px; */
   margin-right: 50px;
   line-height: 70px;
   text-align: right;

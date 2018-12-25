@@ -51,14 +51,21 @@ export default {
   methods: {
     login (isEmployee) {
       if (isEmployee) {
+        this.$axios.post('/api/test/helloWorld', {
+          names: ['a', 'b', 'c'],
+          map: { 'm': 'ap' },
+          str: 'string'
+        }).then(res => {
+          console.log(res)
+        })
         this.$refs['loginForm'].validate((valid) => {
           if (valid) {
-            this.$notify.success({
-              title: '成功',
-              message: '登录成功',
-              duration: 2000
-            })
-            this.toIndex(isEmployee)
+            // this.$notify.success({
+            //   title: '成功',
+            //   message: '登录成功',
+            //   duration: 2000
+            // })
+            // this.toIndex(isEmployee)
           } else {
             return false
           }

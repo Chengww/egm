@@ -6,6 +6,7 @@ import './registerServiceWorker'
 import './plugins/element.js'
 import './assets/css/base.css'
 import components from './components'
+import './axios'
 
 Vue.config.productionTip = false
 
