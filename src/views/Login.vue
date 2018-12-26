@@ -51,10 +51,12 @@ export default {
   methods: {
     login (isEmployee) {
       if (isEmployee) {
-        this.$axios.post('/api/test/helloWorld', {
-          names: ['a', 'b', 'c'],
-          map: { 'm': 'ap' },
-          str: 'string'
+        this.$axios.post('/api/user/userList', {
+          // names: ['a', 'b', 'c'],
+          // map: { 'm': 'ap' },
+          // str: 'string'
+          page: 1,
+          size: 3
         }).then(res => {
           console.log(res)
         })
