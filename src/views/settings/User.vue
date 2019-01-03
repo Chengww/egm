@@ -1,5 +1,6 @@
 <template>
   <hc-list>
+    <hc-dialog slot="dialog" :show="show" @close="close"></hc-dialog>
     <div slot="left" class="layout layout-item">
       <el-breadcrumb separator-class="el-icon-arrow-right" class="breadcrumb">
         <el-breadcrumb-item :to="{ name: 'user' }">设置</el-breadcrumb-item>
@@ -26,11 +27,11 @@
         </el-row>
       </div>
       <div class="btn-box">
-        <el-button type="primary" size="small">添加人员</el-button>
+        <el-button type="primary" size="small" @click="add">添加人员</el-button>
         <el-button type="danger" size="small">批量删除</el-button>
       </div>
     </div>
-    <hc-grid slot="bottom" :data="gridData" :total="gridData.length">
+    <hc-grid slot="bottom" :url="gridUrl">
       <el-table-column
         prop="date"
         label="日期"
@@ -66,74 +67,7 @@
   </hc-list>
 </template>
 <script>
-const gridData = [{
-  date: '2016-05-02',
-  name: '王小虎1',
-  address: '上海市普陀区金沙江路 弄'
-}, {
-  date: '2016-05-04',
-  name: '王小虎2',
-  address: '上海市普陀区金沙江路 弄'
-},
-{
-  date: '2016-05-01',
-  name: '王小虎3',
-  address: '上海市普陀区金沙江路 弄'
-}, {
-  date: '2016-05-03',
-  name: '王小虎4',
-  address: '上海市普陀区金沙江路 弄'
-}, {
-  date: '2016-05-02',
-  name: '王小虎5',
-  address: '上海市普陀区金沙江路 弄'
-}, {
-  date: '2016-05-04',
-  name: '王小虎6',
-  address: '上海市普陀区金沙江路 弄'
-},
-{
-  date: '2016-05-01',
-  name: '王小虎7',
-  address: '上海市普陀区金沙江路 弄'
-}, {
-  date: '2016-05-03',
-  name: '王小虎8',
-  address: '上海市普陀区金沙江路 弄'
-}, {
-  date: '2016-05-02',
-  name: '王小虎9',
-  address: '上海市普陀区金沙江路 弄'
-}, {
-  date: '2016-05-04',
-  name: '王小虎10',
-  address: '上海市普陀区金沙江路 弄'
-}, {
-  date: '2016-05-01',
-  name: '王小虎11',
-  address: '上海市普陀区金沙江路 弄'
-}, {
-  date: '2016-05-03',
-  name: '王小虎12',
-  address: '上海市普陀区金沙江路 弄'
-}, {
-  date: '2016-05-02',
-  name: '王小虎13',
-  address: '上海市普陀区金沙江路 弄'
-}, {
-  date: '2016-05-04',
-  name: '王小虎14',
-  address: '上海市普陀区金沙江路 弄'
-}, {
-  date: '2016-05-01',
-  name: '王小虎15',
-  address: '上海市普陀区金沙江路 弄'
-},
-{
-  date: '2016-05-03',
-  name: '王小虎16',
-  address: '上海市普陀区金沙江路 弄'
-}]
+
 export default {
   name: 'user',
   data () {
@@ -188,12 +122,29 @@ export default {
           }]
         }
       },
-      gridData: gridData
+      gridUrl: null,
+      show: false
     }
   },
   methods: {
     clickFilter () {
       console.log(this.filterParams)
+    },
+    refreshGrid () {
+      this.gridUrl = {
+        url: '/user/userList',
+        params: {
+          time: new Date().getTime(),
+          ...this.filterParams
+        }
+      }
+    },
+    add () {
+      this.show = true
+      // this.$service.openDialog()
+    },
+    close () {
+      this.show = false
     }
   },
   computed: {
@@ -208,6 +159,9 @@ export default {
       }
       return result
     }
+  },
+  created () {
+    this.refreshGrid()
   }
 }
 </script>

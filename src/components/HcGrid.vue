@@ -12,7 +12,7 @@
     </div>
     <el-pagination
       :current-page="currentPage"
-      :page-sizes="[5, 10, 15, 20]"
+      :page-sizes="[2, 10, 15, 20]"
       :page-size="pageSize"
       layout="total, sizes, prev, pager, next, jumper"
       :total="total"
@@ -32,7 +32,7 @@ export default {
     pageSize: {
       type: Number,
       default () {
-        return 5
+        return 2
       }
     }
   },
@@ -61,7 +61,15 @@ export default {
     },
     getData () {
       if (this.url) {
-
+        let params = {
+          page: this.currentPage,
+          size: this.pageSize,
+          ...this.url.params
+        }
+        this.$axios.get(this.url.url, { params }).then(({ data }) => {
+          this.total = data.total
+          this.gridData = data.records
+        })
       } else {
         let [min, max] = [this.startIndex - 1, this.startIndex + this.pageSize]
         this.gridData = []
@@ -77,12 +85,7 @@ export default {
       this.getData()
     },
     initByUrl () {
-      let data = {
-        rows: [],
-        count: 0
-      }
-      this.total = data.count
-      this.gridData = data.rows
+      this.getData()
     }
   },
   computed: {
@@ -101,8 +104,10 @@ export default {
     data () {
       this.initByData()
     },
-    url () {
-      this.initByUrl()
+    'url.params.time' (nv) {
+      if (nv) {
+        this.initByUrl()
+      }
     }
   }
 }

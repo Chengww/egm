@@ -83,6 +83,10 @@ export default {
               duration: 2000
             })
           }
+        }).catch(() => {
+          this.$notify.error({
+            message: '网络错误'
+          })
         })
       }
     }

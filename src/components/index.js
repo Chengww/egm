@@ -4,6 +4,7 @@ import HcList from './HcList'
 import HcGrid from './HcGrid'
 import HcFilter from './HcFilter'
 import HcTag from './HcTag'
+import HcDialog from './HcDialog'
 
 export default {
   HcInput,
@@ -11,5 +12,6 @@ export default {
   HcList,
   HcGrid,
   HcFilter,
-  HcTag
+  HcTag,
+  HcDialog
 }
