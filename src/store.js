@@ -3,14 +3,20 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
-  state: {
+const state = {
+  userInfo: {},
+  login: false
+}
 
-  },
-  mutations: {
-
-  },
-  actions: {
-
+const mutations = {
+  setUserInfo (state, userInfo = {}) {
+    state.login = !!userInfo.loginUuid
+    state.userInfo = userInfo
   }
+}
+
+export default new Vuex.Store({
+  state,
+  mutations,
+  actions: {}
 })

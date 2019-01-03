@@ -23,10 +23,16 @@ export default {
   methods: {
     logout () {
       this.$router.replace('/login')
+      this.$axios.get('/logout', {
+        params: {
+          userId: this.$store.state.userInfo.userId
+        }
+      })
+      this.$store.commit('setUserInfo')
     }
   },
   created () {
-    console.log(this.$route)
+    // console.log(this.$route)
   }
 }
 </script>
