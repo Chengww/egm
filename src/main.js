@@ -7,7 +7,7 @@ import './plugins/element.js'
 import './assets/css/base.css'
 import components from './components'
 import './axios'
-import Service from './service'
+import MyPlugin from './plugin'
 
 Vue.config.productionTip = false
 
@@ -19,7 +19,7 @@ Array.prototype.remove = function (val) {
   }
 }
 
-Vue.prototype.$service = Service
+Vue.use(MyPlugin)
 
 Object.keys(components).forEach(key => {
   Vue.component(components[key].name, components[key])

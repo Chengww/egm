@@ -1,10 +1,12 @@
 <template>
   <el-dialog
-    title="提示"
+    :title="title"
+    :close-on-click-modal="closeOnClickModal"
+    :close-on-press-escape="closeOnPressEsc"
     :visible.sync="show"
-    width="30%"
+    :width="width"
     center>
-    <span>464645646</span>
+    <slot></slot>
     <span slot="footer" class="dialog-footer">
       <el-button @click="close">取 消</el-button>
       <el-button type="primary" @click="save">确 定</el-button>
@@ -15,6 +17,20 @@
 export default {
   name: 'HcDialog',
   props: {
+    title: '',
+    width: '60%',
+    closeOnPressEsc: {
+      type: Boolean,
+      default () {
+        return false
+      }
+    },
+    closeOnClickModal: {
+      type: Boolean,
+      default () {
+        return false
+      }
+    },
     show: {
       type: Boolean,
       default () {

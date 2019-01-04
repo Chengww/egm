@@ -1,6 +1,5 @@
 <template>
   <hc-list>
-    <hc-dialog slot="dialog" :show="show" @close="close"></hc-dialog>
     <div slot="left" class="layout layout-item">
       <el-breadcrumb separator-class="el-icon-arrow-right" class="breadcrumb">
         <el-breadcrumb-item :to="{ name: 'user' }">设置</el-breadcrumb-item>
@@ -67,7 +66,7 @@
   </hc-list>
 </template>
 <script>
-
+import EditUser from './EditUser'
 export default {
   name: 'user',
   data () {
@@ -140,8 +139,9 @@ export default {
       }
     },
     add () {
-      this.show = true
-      // this.$service.openDialog()
+      this.$openDialog(EditUser, {
+        title: '新建人员'
+      })
     },
     close () {
       this.show = false
@@ -162,9 +162,9 @@ export default {
   },
   created () {
     this.refreshGrid()
+  },
+  components: {
+    EditUser
   }
 }
 </script>
-<style scoped>
-
-</style>

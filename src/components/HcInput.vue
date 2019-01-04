@@ -1,5 +1,5 @@
 <template>
-  <el-input :value="value" @input="inputHandler" ref="input" :clearable="clearable" @clear="clearHandler" @keydown.native.enter="enterHandler" :placeholder="placeholder">
+  <el-input :value="value" @input="inputHandler" ref="input" :clearable="clearable" :type="type" @clear="clearHandler" @keydown.native.enter="enterHandler" :placeholder="placeholder">
     <el-button v-if="search" slot="append" icon="el-icon-search" @click="btnClickHandler"></el-button>
   </el-input>
 </template>
@@ -23,7 +23,8 @@ export default {
     search: {
       type: Boolean,
       default: false
-    }
+    },
+    type: {}
   },
   methods: {
     inputHandler (value) {
