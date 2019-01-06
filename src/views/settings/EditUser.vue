@@ -8,14 +8,14 @@
       </el-col>
       <el-col :span="12">
         <el-form-item label="性别">
-          <hc-input v-model="user.sex"></hc-input>
+          <hc-select v-model="user.sex" dict-type="sex"></hc-select>
         </el-form-item>
       </el-col>
     </el-row>
     <el-row :span="24">
       <el-col :span="12">
         <el-form-item label="角色">
-          <hc-input v-model="user.role"></hc-input>
+          <hc-select v-model="user.role" :url="{ url: '/sys/dictOptions', params: { type: 'role'} }"></hc-select>
         </el-form-item>
       </el-col>
       <el-col :span="12">
@@ -24,7 +24,7 @@
         </el-form-item>
       </el-col>
     </el-row>
-    <template v-if="user.role">
+    <template v-if="['boss', 'employee'].includes(user.role)">
       <el-row :span="24">
         <el-col :span="12">
           <el-form-item label="身份证">
@@ -91,8 +91,20 @@ export default {
     }
   },
   methods: {
-    submit (a) {
-      console.log(a)
+    submit (opts) {
+      console.log(opts)
+      this.$axios.post('/user/save', {
+        user: this.user,
+        a: 123,
+        b: {
+          a: 1,
+          b: 2
+        }
+        // b: ['a', 'b', 'c']
+      }).then(data => {
+        console.log(data)
+      })
+      // this.$emit('submit-dialog', 'abc')
     }
   }
 }

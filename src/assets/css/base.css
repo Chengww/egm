@@ -215,3 +215,11 @@ body {
 .f-red {
   color: red; 
 }
+
+.el-select {
+  width: 100%
+}
+
+/* .el-dialog .el-form {
+  padding: 0px 20px
+} */

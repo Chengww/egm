@@ -28,12 +28,11 @@ const MyPlugin = {
           }, this.title)
           const content = h(componentName, {
             props: this.props,
-            ref: 'dialog-content'
-            // ,
-            // on: {
-            //   'submit-dialog': this.submitDialog,
-            //   'update-title': this.updateTitle
-            // }
+            ref: 'dialog-content',
+            on: {
+              'submit-dialog': this.submitDialog,
+              'update-title': this.updateTitle
+            }
           })
           const footer = this.hideFooter === false ? h('span', {
             slot: 'footer'
@@ -85,18 +84,21 @@ const MyPlugin = {
         },
         methods: {
           close () {
-            closeCallback && closeCallback()
+            closeCallback && closeCallback(options)
             this.$destroy()
             let _parentElement = this.$el.parentNode
             if (_parentElement) {
               _parentElement.removeChild(this.$el)
             }
-            // this.$el.remove()
+            this.$el.remove()
             resolve(null)
           },
-          confirmDialog (type) {
-            this.$refs['dialog-content'].submit(type)
-            console.log(type)
+          confirmDialog (btnType) {
+            this.$refs['dialog-content'].submit({
+              ...options,
+              btnType
+            })
+            // console.log(type)
           },
           submitDialog (value) {
             this.show = false

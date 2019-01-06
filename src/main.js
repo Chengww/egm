@@ -7,7 +7,7 @@ import './plugins/element.js'
 import './assets/css/base.css'
 import components from './components'
 import './axios'
-import MyPlugin from './plugin'
+import MyPlugin from './plugins/plugin'
 
 Vue.config.productionTip = false
 

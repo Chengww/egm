@@ -66,7 +66,9 @@ export default {
           size: this.pageSize,
           ...this.url.params
         }
-        this.$axios.get(this.url.url, { params }).then(({ data }) => {
+        this.$axios.get(this.url.url, {
+          params
+        }).then(data => {
           this.total = data.total
           this.gridData = data.records
         })

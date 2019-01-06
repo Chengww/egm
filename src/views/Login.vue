@@ -64,7 +64,7 @@ export default {
         }
       }
       if (params !== null) {
-        this.$axios.get('/login', { params }).then(({ data }) => {
+        this.$axios.get('/login', { params }).then(data => {
           if (data && data.success) {
             this.$store.commit('setUserInfo', data.result)
             this.$notify.success({
@@ -83,10 +83,6 @@ export default {
               duration: 2000
             })
           }
-        }).catch(() => {
-          this.$notify.error({
-            message: '网络错误'
-          })
         })
       }
     }

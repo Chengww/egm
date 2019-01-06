@@ -127,11 +127,11 @@ export default {
   },
   methods: {
     clickFilter () {
-      console.log(this.filterParams)
+      this.refreshGrid()
     },
     refreshGrid () {
       this.gridUrl = {
-        url: '/user/userList',
+        url: '/user/list',
         params: {
           time: new Date().getTime(),
           ...this.filterParams
@@ -140,7 +140,12 @@ export default {
     },
     add () {
       this.$openDialog(EditUser, {
-        title: '新建人员'
+        title: '新建人员',
+        width: '45%'
+      }, opts => {
+        console.log(opts)
+      }).then(aa => {
+        console.log(aa)
       })
     },
     close () {
@@ -162,9 +167,6 @@ export default {
   },
   created () {
     this.refreshGrid()
-  },
-  components: {
-    EditUser
   }
 }
 </script>
