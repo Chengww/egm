@@ -1,56 +1,44 @@
 import Vue from 'vue'
 import Axios from 'axios'
-import Qs from 'qs'
+// import Qs from 'qs'
 import Element from 'element-ui'
 
 const BASE_URL = '/api'
+
+Axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 Axios.interceptors.request.use(config => {
   // 在发送请求之前做某事
   // console.log('拦截')
   // console.log(config)// 单次请求的配置信息对象
   if (['get', 'delete'].includes(config.method)) {
-    // var params = { ...config.params }
-
-    // for (let [key, value] of Object.entries(params)) {
-    //   if (value instanceof Array) {
-    //     params[key] = JSON.stringify(value)
-    //   } else if (value instanceof Object) {
-    //     params[key] = JSON.stringify(value)
-    //   } else if (value != null) {
-    //     params[key] = value
-    //   }
-    // }
-    // config.params = params
-    // config.headers = { 'Content-Type': 'application/json;charset=UTF-8' }
-    // for (let [key, value] of Object.entries(params)) {
-    //   if (value != null) {
-    //     url += key + '=' + value + '&'
-    //   }
-    // }
-    config.paramsSerializer = params => {
-      return Qs.stringify(params, { arrayFormat: 'repeat' })
+    let [url, params] = [config.url, config.params]
+    if (params) {
+      url += url.indexOf('?') < 0 ? '?' : '&'
+      for (let [key, value] of Object.entries(params)) {
+        if (value) {
+          if (value instanceof Array || value instanceof Object) {
+            value = JSON.stringify(value)
+          }
+          url += `${key}=${value}&`
+        }
+      }
+      if (url.endsWith('&')) url = url.substring(0, url.length - 1)
     }
+    config.url = encodeURI(url)
+    config.params = null
   } else {
-    // config.headers = { 'Content-Type': 'application/x-www-form-urlencoded' }
-    // config.headers = { 'Content-Type': 'application/json;charset=UTF-8' }
-    // var params = { ...config.data }
-
-    // for (let [key, value] of Object.entries(params)) {
-    //   if (value instanceof Array) {
-    //     params[key] = JSON.stringify(value)
-    //   } else if (value instanceof Object) {
-    //     params[key] = JSON.stringify(value)
-    //   } else if (value != null) {
-    //     params[key] = value
-    //   }
-    // }
-
-    // config.data = JSON.stringify(params)
-    // config.data = Qs.stringify({ ...config.data }, {
-    //   arrayFormat: 'indices'
-    // })
+    config.transformRequest = [data => {
+      if (data) {
+        let ret = ''
+        for (let [key, value] of Object.entries(data)) {
+          if (value) {
+            ret += encodeURIComponent(key) + '=' + encodeURIComponent(JSON.stringify(value)) + '&'
+          }
+        }
+        return ret.endsWith('&') ? ret.substring(0, ret.length - 1) : ret
+      }
+    }]
   }
-  // console.log(config.data, config.params)
   config.baseURL = BASE_URL
   return config// 只有return config后，才能成功发送请求
 }, error => {

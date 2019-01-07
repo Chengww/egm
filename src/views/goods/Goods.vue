@@ -10,7 +10,12 @@ export default {
   name: 'goods',
   data () {
     return {
-      show: false
+      show: false,
+      users: [{
+        name: 'aa'
+      }, {
+        name: 'bb'
+      }]
     }
   },
   methods: {
@@ -18,20 +23,22 @@ export default {
       this.show = false
     },
     pop () {
-      this.$axios.post('/test/helloWorld2', {
+      this.$axios.post('/test/helloWorld', {
         // params: {
-        //   // a: 3
-        //   a: { name: 'aa' } // ['a', 'b', 'c']
+        //   a: 3
+        //   // a: { name: 'aa' }
+        //   // a: this.users
         // }
         // user: this.user,
-        // a: 123
+        // a: null
         // name: 'aa'
-        a: {
-          name: 'aa'
-        }
-        // b: ['a', 'b', 'c']
+        // a: {
+        //   name: 'aa'
+        // }
+        a: this.users
       }).then(data => {
         console.log(data)
+        console.log(this.users)
       })
     }
   }
